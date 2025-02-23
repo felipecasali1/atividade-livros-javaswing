@@ -21,6 +21,7 @@ public class TelaAddLivro extends JDialog {
     
     public TelaAddLivro() {
         init();
+        actions();
     }
     
     private void init() {
@@ -54,6 +55,11 @@ public class TelaAddLivro extends JDialog {
         painel.add(jbCadastrar);
         painel.add(jbSair);
         add(painel, BorderLayout.CENTER);
-        
+    }
+    
+    private void actions() {
+        jbCadastrar.addActionListener((e) -> {
+            
+        });
     }
 }
