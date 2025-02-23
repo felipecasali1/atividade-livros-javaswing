@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,13 +24,20 @@ public class Tela extends JFrame {
         setTitle("Controle de Livros");
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(720, 480);
+        setSize(360, 480);
         
-        addLivros = new JButton("Adicionar livro");
-        delLivros = new JButton("Remover livro");
-        editLivros = new JButton("Editar livro");
-        verLivros = new JButton("Visualizar livros");
-        painel = new JPanel(new FlowLayout(1, 480, 10));
+        addLivros = new JButton("ADICIONAR LIVRO");
+        delLivros = new JButton("REMOVER LIVRO");
+        editLivros = new JButton("EDITAR LIVRO");
+        verLivros = new JButton("VISUALIZAR LIVROS");
+        painel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
+        
+        Dimension tamanhoBotao = new Dimension(240, 80);
+        addLivros.setPreferredSize(tamanhoBotao);
+        delLivros.setPreferredSize(tamanhoBotao);
+        editLivros.setPreferredSize(tamanhoBotao);
+        verLivros.setPreferredSize(tamanhoBotao);
+        
         painel.add(addLivros);
         painel.add(delLivros);
         painel.add(editLivros);
