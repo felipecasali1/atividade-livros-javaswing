@@ -1,16 +1,16 @@
 package models;
 
-public class Livros {
+public class Livro {
     private String titulo;
     private String autor;
     private String anoPub;
 
-    public Livros() {
+    public Livro() {
         this.titulo = "Não informado!";
         this.autor = "Não informado!";
         this.anoPub = "Não informado!";
     }
-    public Livros(String titulo, String autor, String anoPub) {
+    public Livro(String titulo, String autor, String anoPub) {
         this.titulo = titulo;
         this.autor = autor;
         this.anoPub = anoPub;

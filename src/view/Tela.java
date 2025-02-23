@@ -25,6 +25,7 @@ public class Tela extends JFrame {
         setLayout(new BorderLayout());
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(360, 480);
+        setLocationRelativeTo(null);
         
         addLivros = new JButton("ADICIONAR LIVRO");
         delLivros = new JButton("REMOVER LIVRO");
@@ -47,6 +48,17 @@ public class Tela extends JFrame {
     }
     
     private void actions() {
-        
+        addLivros.addActionListener((e) -> {
+            new TelaAddLivro();
+        });
+        delLivros.addActionListener((e) -> {
+            new TelaDelLivro();
+        });
+        editLivros.addActionListener((e) -> {
+            new TelaEditLivro();
+        });
+        verLivros.addActionListener((e) -> {
+            new TelaVerLivro();
+        });
     }
 }
