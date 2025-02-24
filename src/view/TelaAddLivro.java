@@ -1,10 +1,12 @@
 package view;
 
+import dao.LivroDao;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -25,7 +27,6 @@ public class TelaAddLivro extends JDialog {
     }
     
     private void init() {
-        setVisible(true);
         setModal(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(480, 360);
@@ -42,8 +43,11 @@ public class TelaAddLivro extends JDialog {
         jbSair = new JButton("Sair");
         
         jlTitulo.setHorizontalAlignment(JLabel.CENTER);
+        jtTitulo.setHorizontalAlignment(JLabel.CENTER);
         jlAutor.setHorizontalAlignment(JLabel.CENTER);
+        jtAutor.setHorizontalAlignment(JLabel.CENTER);
         jlAno.setHorizontalAlignment(JLabel.CENTER);
+        jtAno.setHorizontalAlignment(JLabel.CENTER);
         
         painel = new JPanel(new GridLayout(8, 1, 5, 5));
         painel.add(jlTitulo);
@@ -59,7 +63,22 @@ public class TelaAddLivro extends JDialog {
     
     private void actions() {
         jbCadastrar.addActionListener((e) -> {
-            
+            try {
+                if (jtTitulo.getText().isEmpty() || jtAutor.getText().isEmpty() || jtAno.getText().isEmpty()) {
+                    throw new IllegalArgumentException("Todos os campos são obrigatórios!");
+                } else {
+                    LivroDao.cadastrar(jtTitulo.getText(), jtAutor.getText(), jtAno.getText());
+                    JOptionPane.showMessageDialog(rootPane, "Livro cadastrado!");
+                    dispose();
+                }
+            } catch (IllegalArgumentException ex) {
+                 System.out.println("Erro: " + ex.getMessage());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+        jbSair.addActionListener((e) -> {
+            dispose();
         });
     }
 }

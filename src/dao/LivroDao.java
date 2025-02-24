@@ -6,4 +6,12 @@ import models.Livro;
 
 public class LivroDao {
     private static List<Livro> livros = new LinkedList<>();
+    
+    public static void cadastrar(String titulo, String autor, String ano) {
+        livros.add(new Livro(titulo, autor, ano));
+    }
+    
+    public static Object[] getDados(int i) {
+        return new Object[]{livros.get(i).getTitulo(),livros.get(i).getAutor(),livros.get(i).getAnoPub()};
+    }
 }

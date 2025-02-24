@@ -49,7 +49,7 @@ public class Tela extends JFrame {
     
     private void actions() {
         addLivros.addActionListener((e) -> {
-            new TelaAddLivro();
+            new TelaAddLivro().setVisible(true);
         });
         delLivros.addActionListener((e) -> {
             new TelaDelLivro();
