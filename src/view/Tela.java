@@ -1,18 +1,20 @@
 package view;
 
+import dao.LivroDao;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Tela extends JFrame {
-    private JButton addLivros;
-    private JButton delLivros;
-    private JButton editLivros;
+    private JButton jbAddLivros;
+    private JButton jbDelLivros;
+    private JButton jbEditLivros;
     private JButton verLivros;
-    private JPanel painel;
+    private JPanel jpPainel;
 
     public Tela() {
         init();
@@ -27,38 +29,42 @@ public class Tela extends JFrame {
         setSize(360, 480);
         setLocationRelativeTo(null);
         
-        addLivros = new JButton("ADICIONAR LIVRO");
-        delLivros = new JButton("REMOVER LIVRO");
-        editLivros = new JButton("EDITAR LIVRO");
+        jbAddLivros = new JButton("ADICIONAR LIVROS");
+        jbDelLivros = new JButton("REMOVER LIVROS");
+        jbEditLivros = new JButton("EDITAR LIVROS");
         verLivros = new JButton("VISUALIZAR LIVROS");
-        painel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
+        jpPainel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
         
         Dimension tamanhoBotao = new Dimension(240, 80);
-        addLivros.setPreferredSize(tamanhoBotao);
-        delLivros.setPreferredSize(tamanhoBotao);
-        editLivros.setPreferredSize(tamanhoBotao);
+        jbAddLivros.setPreferredSize(tamanhoBotao);
+        jbDelLivros.setPreferredSize(tamanhoBotao);
+        jbEditLivros.setPreferredSize(tamanhoBotao);
         verLivros.setPreferredSize(tamanhoBotao);
         
-        painel.add(addLivros);
-        painel.add(delLivros);
-        painel.add(editLivros);
-        painel.add(verLivros);
-        add(painel, BorderLayout.CENTER);
+        jpPainel.add(jbAddLivros);
+        jpPainel.add(jbDelLivros);
+        jpPainel.add(jbEditLivros);
+        jpPainel.add(verLivros);
+        add(jpPainel, BorderLayout.CENTER);
         
     }
     
     private void actions() {
-        addLivros.addActionListener((e) -> {
+        jbAddLivros.addActionListener((e) -> {
             new TelaAddLivro().setVisible(true);
         });
-        delLivros.addActionListener((e) -> {
-            new TelaDelLivro();
+        jbDelLivros.addActionListener((e) -> {
+            if(LivroDao.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Nenhum livro encontrado!");
+            } else {
+                new TelaDelLivro().setVisible(true);
+            }
         });
-        editLivros.addActionListener((e) -> {
+        jbEditLivros.addActionListener((e) -> {
             new TelaEditLivro();
         });
         verLivros.addActionListener((e) -> {
-            new TelaVerLivro();
+            new TelaVerLivro().setVisible(true);
         });
     }
 }

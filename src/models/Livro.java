@@ -39,4 +39,11 @@ public class Livro {
     public void setAnoPub(String anoPub) {
         this.anoPub = anoPub;
     }
+
+    @Override
+    public String toString() {
+        return titulo + " - " + autor;
+    }
+    
+    
 }

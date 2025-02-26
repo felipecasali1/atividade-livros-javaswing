@@ -17,7 +17,7 @@ public class TelaAddLivro extends JDialog {
     private JTextField jtTitulo;
     private JTextField jtAutor;
     private JTextField jtAno;
-    private JPanel painel;
+    private JPanel jpPainel;
     private JButton jbCadastrar;
     private JButton jbSair;
     
@@ -41,6 +41,7 @@ public class TelaAddLivro extends JDialog {
         jtAno = new JTextField();
         jbCadastrar = new JButton("Cadastrar");
         jbSair = new JButton("Sair");
+        jpPainel = new JPanel(new GridLayout(8, 1, 5, 5));
         
         jlTitulo.setHorizontalAlignment(JLabel.CENTER);
         jtTitulo.setHorizontalAlignment(JLabel.CENTER);
@@ -49,16 +50,15 @@ public class TelaAddLivro extends JDialog {
         jlAno.setHorizontalAlignment(JLabel.CENTER);
         jtAno.setHorizontalAlignment(JLabel.CENTER);
         
-        painel = new JPanel(new GridLayout(8, 1, 5, 5));
-        painel.add(jlTitulo);
-        painel.add(jtTitulo);
-        painel.add(jlAutor);
-        painel.add(jtAutor);
-        painel.add(jlAno);
-        painel.add(jtAno);
-        painel.add(jbCadastrar);
-        painel.add(jbSair);
-        add(painel, BorderLayout.CENTER);
+        jpPainel.add(jlTitulo);
+        jpPainel.add(jtTitulo);
+        jpPainel.add(jlAutor);
+        jpPainel.add(jtAutor);
+        jpPainel.add(jlAno);
+        jpPainel.add(jtAno);
+        jpPainel.add(jbCadastrar);
+        jpPainel.add(jbSair);
+        add(jpPainel, BorderLayout.CENTER);
     }
     
     private void actions() {
