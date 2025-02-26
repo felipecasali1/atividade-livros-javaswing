@@ -11,6 +11,10 @@ public class LivroDao {
         livros.add(new Livro(titulo, autor, ano));
     }
     
+    public static void remover(List<Livro> livrosSelec) {
+        livros.removeAll(livrosSelec);
+    }
+    
     public static Object[] getDados(int i) {
         return new Object[]{livros.get(i).getTitulo(),livros.get(i).getAutor(),livros.get(i).getAnoPub()};
     }

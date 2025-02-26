@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -54,7 +55,15 @@ public class TelaDelLivro extends JDialog {
     
     private void actions() {
         jbRemover.addActionListener((e) -> {
-            
+            if(jlLista.getSelectedValuesList().isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Nenhum livro selecionado!");
+            } else {
+                LivroDao.remover(jlLista.getSelectedValuesList());
+                jlLista.setListData(LivroDao.getLivros().toArray());
+            }
+        });
+        jbSair.addActionListener((e) -> {
+            dispose();
         });
     }
 }
