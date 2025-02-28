@@ -4,7 +4,6 @@ import dao.LivroDao;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import models.Livro;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
