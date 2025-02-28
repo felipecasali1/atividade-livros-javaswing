@@ -61,7 +61,11 @@ public class Tela extends JFrame {
             }
         });
         jbEditLivros.addActionListener((e) -> {
-            new TelaEditLivro();
+            if(LivroDao.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "Nenhum livro encontrado!");
+            } else {
+                new TelaEditLivro().setVisible(true);
+            }
         });
         verLivros.addActionListener((e) -> {
             new TelaVerLivro().setVisible(true);
