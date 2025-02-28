@@ -15,6 +15,12 @@ public class LivroDao {
         livros.removeAll(livrosSelec);
     }
     
+    public static void editar(Livro livro, String titulo, String autor, String ano) {
+        livro.setTitulo(titulo);
+        livro.setAutor(autor);
+        livro.setAnoPub(ano);
+    }
+    
     public static Object[] getDados(int i) {
         return new Object[]{livros.get(i).getTitulo(),livros.get(i).getAutor(),livros.get(i).getAnoPub()};
     }
